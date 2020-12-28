@@ -20,13 +20,20 @@ final class BuildLibrary {
     }
 
     $buildPath = preg_replace('/[^a-z0-9_\/\. -]/', '', $this->buildPath);
+    if ($buildPath === null) {
+      return $this->library->getSourcePath();
+    }
+
     $buildPath = preg_replace('/(\.{1,2}\/)+/', '', $buildPath);
+    if ($buildPath === null) {
+      return $this->library->getSourcePath();
+    }
 
     return sprintf(
       '%s/%s',
       $this->library->getSourcePath(),
       trim($buildPath, '/')
-   );
+    );
   }
 
   /**
@@ -59,8 +66,8 @@ final class BuildLibrary {
   public function __construct(
     CommandBuilder $commandBuilder,
     LibraryInterface $library,
-    string $buildFlag,
-    string $buildPath
+    string $buildFlag = '',
+    string $buildPath = ''
   ) {
     $this->commandBuilder = $commandBuilder;
 

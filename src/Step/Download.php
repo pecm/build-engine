@@ -15,7 +15,7 @@ final class Download implements StepInterface {
 
   private static function resolveFileNameFromUrl(string $fileUrl): string {
     $fileName = parse_url($fileUrl, PHP_URL_PATH);
-    if ($fileName === null || strpos($fileName, '.') === false) {
+    if ($fileName === null || $fileName === false || strpos($fileName, '.') === false) {
       throw new RuntimeException('Could not resolve a valid file name from the $fileUrl');
     }
 

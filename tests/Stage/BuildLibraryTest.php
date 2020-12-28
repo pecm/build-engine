@@ -93,7 +93,7 @@ class BuildLibraryTest extends TestCase {
       [
         "git 'clone' '--recursive' '--depth=1' 'https://example.com/user/mylib' '/tmp/libsrc'",
         "cd '/tmp/libsrc'",
-        "./configure",
+        './configure',
         'make',
         "make 'test'"
       ],
