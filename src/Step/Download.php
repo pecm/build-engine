@@ -8,14 +8,14 @@ use BuildEngine\Command\CommandBuilder;
 use InvalidArgumentException;
 use RuntimeException;
 
-final class Download implements Step {
+final class Download implements StepInterface {
   private string $fileUrl;
   private string $fileName;
   private CommandBuilder $commandBuilder;
 
   private static function resolveFileNameFromUrl(string $fileUrl): string {
     $fileName = parse_url($fileUrl, PHP_URL_PATH);
-    if ($fileName === null || basename($fileName) === '') {
+    if ($fileName === null || strpos($fileName, '.') === false) {
       throw new RuntimeException('Could not resolve a valid file name from the $fileUrl');
     }
 

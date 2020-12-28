@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace BuildEngine\Command\Argument;
 
-final class EscapedArgument implements Argument {
+final class EscapedArgument implements ArgumentInterface {
   private string $value;
 
   public function __construct(string $value) {

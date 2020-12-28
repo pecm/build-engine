@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace BuildEngine\Test\Step\Library\GitLibrary;
 
 use BuildEngine\Step\Library\GitLibrary;
+use BuildEngine\Step\Library\LibraryInterface;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
@@ -29,6 +30,7 @@ class GitLibraryTest extends TestCase {
       ['sourceUrl'  => 'https://github.com/php-amqp/php-amqp']
     );
 
+    $this->assertInstanceOf(LibraryInterface::class, $gitLibrary);
     $this->assertSame('https://github.com/php-amqp/php-amqp', $gitLibrary->getSourceUrl());
     $this->assertSame('/tmp/libsrc', $gitLibrary->getSourcePath());
     $this->assertSame(

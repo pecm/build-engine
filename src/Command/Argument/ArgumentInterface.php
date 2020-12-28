@@ -3,6 +3,6 @@ declare(strict_types = 1);
 
 namespace BuildEngine\Command\Argument;
 
-interface Argument {
+interface ArgumentInterface {
   public function getValue(): string;
 }

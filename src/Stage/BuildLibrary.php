@@ -5,12 +5,12 @@ namespace BuildEngine\Stage;
 
 use BuildEngine\Command\CommandBuilder;
 use BuildEngine\Command\CommandCollection;
-use BuildEngine\Step\Library\Library;
+use BuildEngine\Step\Library\LibraryInterface;
 use InvalidArgumentException;
 
 final class BuildLibrary {
   private CommandBuilder $commandBuilder;
-  private Library $library;
+  private LibraryInterface $library;
   private string $buildFlag;
   private string $buildPath;
 
@@ -39,11 +39,11 @@ final class BuildLibrary {
     );
 
     assert(
-      $input['library'] instanceof Library,
+      $input['library'] instanceof LibraryInterface,
       new InvalidArgumentException(
         sprintf(
           '$input[\'library\'] must be an instance of %s',
-          Library::class
+          LibraryInterface::class
         )
       )
     );
@@ -58,7 +58,7 @@ final class BuildLibrary {
 
   public function __construct(
     CommandBuilder $commandBuilder,
-    Library $library,
+    LibraryInterface $library,
     string $buildFlag,
     string $buildPath
   ) {
@@ -70,7 +70,7 @@ final class BuildLibrary {
     $this->buildPath = $buildPath;
   }
 
-  public function getLibrary(): Library {
+  public function getLibrary(): LibraryInterface {
     return $this->library;
   }
 

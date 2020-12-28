@@ -5,10 +5,10 @@ namespace BuildEngine\Step\OperatingSystem\Alpine;
 
 use BuildEngine\Command\Command;
 use BuildEngine\Command\CommandBuilder;
-use BuildEngine\Step\Step;
+use BuildEngine\Step\StepInterface;
 use InvalidArgumentException;
 
-final class ApkSource implements Step {
+final class ApkSource implements StepInterface {
   private string $sourceUrl;
   private CommandBuilder $commandBuilder;
 

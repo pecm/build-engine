@@ -5,6 +5,6 @@ namespace BuildEngine\Step;
 
 use BuildEngine\Command\Command;
 
-interface Step {
+interface StepInterface {
   public function getCommand(): Command;
 }

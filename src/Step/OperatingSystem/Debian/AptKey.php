@@ -5,10 +5,10 @@ namespace BuildEngine\Step\OperatingSystem\Debian;
 
 use BuildEngine\Command\Command;
 use BuildEngine\Command\CommandBuilder;
-use BuildEngine\Step\Step;
+use BuildEngine\Step\StepInterface;
 use InvalidArgumentException;
 
-final class AptKey implements Step {
+final class AptKey implements StepInterface {
   private string $sourceUrl;
   private CommandBuilder $commandBuilder;
 

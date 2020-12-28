@@ -7,7 +7,7 @@ use BuildEngine\Command\Command;
 use BuildEngine\Command\CommandBuilder;
 use InvalidArgumentException;
 
-final class GitLibrary implements Library {
+final class GitLibrary implements LibraryInterface {
   private string $sourceUrl;
   private CommandBuilder $commandBuilder;
 

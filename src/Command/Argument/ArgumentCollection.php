@@ -7,12 +7,12 @@ use Ramsey\Collection\AbstractCollection;
 
 final class ArgumentCollection extends AbstractCollection {
   public function getType(): string {
-    return Argument::class;
+    return ArgumentInterface::class;
   }
 
   public function toArray(): array {
     return array_map(
-      function (Argument $item): string {
+      function (ArgumentInterface $item): string {
         return $item->getValue();
       },
       $this->data

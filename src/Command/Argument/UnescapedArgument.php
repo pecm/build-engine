@@ -5,7 +5,7 @@ namespace BuildEngine\Command\Argument;
 
 use InvalidArgumentException;
 
-final class UnescapedArgument implements Argument {
+final class UnescapedArgument implements ArgumentInterface {
   private const APPEND_TO = '>>';
   private const PIPE_TO = '|';
   private const REDIRECT_TO = '>';

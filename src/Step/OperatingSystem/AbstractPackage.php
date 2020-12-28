@@ -5,10 +5,10 @@ namespace BuildEngine\Step\OperatingSystem;
 
 use BuildEngine\Command\Command;
 use BuildEngine\Command\CommandBuilder;
-use BuildEngine\Step\Step;
+use BuildEngine\Step\StepInterface;
 use InvalidArgumentException;
 
-abstract class AbstractPackage implements Step {
+abstract class AbstractPackage implements StepInterface {
   protected string $packageName;
   protected CommandBuilder $commandBuilder;
 
