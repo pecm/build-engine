@@ -1,14 +1,14 @@
 <?php
 declare(strict_types = 1);
 
-namespace BuildEngine\Test\Stage;
+namespace BuildEngine\Test\Stage\Extension;
 
-use BuildEngine\Stage\BuildLibrary;
+use BuildEngine\Stage\Extension\DevExtension;
 use BuildEngine\Step\Library\GitLibrary;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
-class BuildLibraryTest extends TestCase {
+class DevExtensionTest extends TestCase {
   private function getLibrary(): GitLibrary {
     return GitLibrary::fromArray(
       ['sourceUrl'  => 'https://example.com/user/mylib']
@@ -19,23 +19,23 @@ class BuildLibraryTest extends TestCase {
     $this->expectException(InvalidArgumentException::class);
     $this->expectExceptionMessage('$input must have a "library" key');
 
-    BuildLibrary::fromArray([]);
+    DevExtension::fromArray([]);
   }
 
   public function testFromArrayWithInvalidLibraryInput(): void {
     $this->expectException(InvalidArgumentException::class);
     $this->expectExceptionMessage('$input[\'library\'] must be an instance of BuildEngine\Step\Library\Library');
 
-    BuildLibrary::fromArray(
+    DevExtension::fromArray(
       [
         'library' => ''
       ]
     );
   }
 
-  public function testSimpleAndValidLibraryBuild(): void {
+  public function testSimpleAndValidDevExtensionBuild(): void {
     $library  = $this->getLibrary();
-    $libBuild = BuildLibrary::fromArray(
+    $libBuild = DevExtension::fromArray(
       [
         'library' => $library,
         'buildFlag' => '--with-mylib'
@@ -57,8 +57,8 @@ class BuildLibraryTest extends TestCase {
     );
   }
 
-  public function testLibraryBuildWithCustomBuildPath(): void {
-    $libBuild = BuildLibrary::fromArray(
+  public function testDevExtensionBuildWithCustomBuildPath(): void {
+    $libBuild = DevExtension::fromArray(
       [
         'library' => $this->getLibrary(),
         'buildFlag' => '--enable-mylib',
@@ -80,8 +80,8 @@ class BuildLibraryTest extends TestCase {
     );
   }
 
-  public function testLibraryBuildWithoutBuildFlag(): void {
-    $libBuild = BuildLibrary::fromArray(
+  public function testDevExtensionBuildWithoutBuildFlag(): void {
+    $libBuild = DevExtension::fromArray(
       [
         'library' => $this->getLibrary()
       ]

@@ -1,14 +1,14 @@
 <?php
 declare(strict_types = 1);
 
-namespace BuildEngine\Stage;
+namespace BuildEngine\Stage\Extension;
 
 use BuildEngine\Command\CommandBuilder;
 use BuildEngine\Command\CommandCollection;
 use BuildEngine\Step\Library\LibraryInterface;
 use InvalidArgumentException;
 
-final class BuildLibrary {
+final class DevExtension {
   private CommandBuilder $commandBuilder;
   private LibraryInterface $library;
   private string $buildFlag;
