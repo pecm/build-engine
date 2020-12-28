@@ -24,7 +24,7 @@ Steps are defined in terms of commands *****
 
 ### Stages
 
-Stages are a more sofisticated block of a build, created by the combination of multiple steps, with a target goal.
+Stages are a more sophisticated block of a build, created by the combination of multiple steps, with a target goal.
 
 A stage can be, for instance, build a library from its source code.
 
